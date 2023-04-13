@@ -27,6 +27,12 @@ class productController {
         const deletedProduct = await new productService().delete(req.params.id)
         return res.status(200).json(deletedProduct)
     }
+
+    async randomProducts(req: Request, res: Response) {
+        const randomProducts = await new productService().randomProducts()
+        return res.status(200).json(randomProducts)
+    }
+
 }
 
 export default new productController()

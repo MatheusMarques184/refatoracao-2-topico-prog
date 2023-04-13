@@ -1,5 +1,6 @@
 import { productType } from './types/product.type';
 import ProductModel from './product.schema'
+import { validateHeaderValue } from 'http';
 
 export class productService {
     
@@ -28,5 +29,16 @@ export class productService {
     async delete(id) {
         await ProductModel.findByIdAndDelete(id)
         return "produto deletado"
+    }
+
+    async randomProducts() {
+        const products = await this.findAll()
+        const randomProduct: any = []
+        while (randomProduct.length < 4) {
+            const randomIndex = Math.floor(Math.random() * products.length)
+            randomProduct.push(products[randomIndex])
+            products.splice(randomIndex, 1)
+        }
+        return randomProduct
     }
 }
