@@ -22,7 +22,7 @@ class App {
     public async database() {
         try {
             mongoose.set("strictQuery", true)
-            await mongoose.connect('mongodb://0.0.0.0:27017/esoft')
+            await mongoose.connect('mongodb+srv://MatheusDEV:301346@faculdade.alzjjwc.mongodb.net/esoft')
             console.log('Connect database success')
         } catch (err) {
             console.error('Connect database fail, error', err)
