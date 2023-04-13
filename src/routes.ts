@@ -1,5 +1,6 @@
 import { Router } from 'express'
 import productController from './products/product.controller'
+import stockController from './stock/stock.controller'
 import userController from './user/user.controller'
 
 const routes = Router()
@@ -15,5 +16,10 @@ routes.get('/products', productController.findAll)
 routes.get('/products/:id', productController.find)
 routes.put('/products/:id', productController.update)
 routes.delete('/products/:id', productController.delete)
+routes.get('/products-random', productController.randomProducts)
+
+
+routes.get('/products-stock-value', stockController.stockValue)
+routes.get('/products-stock', stockController.stock)
 
 export default routes
