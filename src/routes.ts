@@ -5,6 +5,10 @@ import userController from './user/user.controller'
 const routes = Router()
 
 routes.post('/users', userController.create)
+routes.get('/users', userController.findAll)
+routes.get('/users/:id', userController.find)
+routes.put('/users/:id', userController.update)
+routes.delete('/users/:id', userController.delete)
 
 routes.post('/products', productController.create)
 routes.get('/products', productController.findAll)
