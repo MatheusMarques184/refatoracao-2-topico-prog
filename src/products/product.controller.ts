@@ -19,8 +19,8 @@ class productController {
     }
 
     async update(req: Request, res: Response) {
-        const product = await new productService().update(req.params.id, req.body)
-        return res.status(200).json(product)
+        const updatedProduct = await new productService().update(req.params.id, req.body)
+        return res.status(200).json(updatedProduct)
     }
 
     async delete(req: Request, res: Response) {
