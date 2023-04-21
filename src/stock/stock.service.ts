@@ -1,4 +1,4 @@
-import { productService } from "src/products/product.service"
+import { productService } from "../products/product.service"
 
 export class stockService {
     async stock() {
