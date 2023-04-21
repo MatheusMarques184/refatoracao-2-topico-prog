@@ -33,6 +33,16 @@ class productController {
         return res.status(200).json(randomProducts)
     }
 
+    async findAndSave(req: Request, res: Response) {
+        const saveProducts = await new productService().findAndSave()
+        return res.status(200).json(saveProducts)
+    }
+
+    async readProducts(req: Request, res: Response) {
+        const products = await new productService().readProducts()
+        return res.status(200).json(products)
+    }
+
 }
 
 export default new productController()

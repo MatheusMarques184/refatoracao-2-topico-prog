@@ -1,6 +1,6 @@
 import { productType } from './types/product.type';
 import ProductModel from './product.schema'
-import { validateHeaderValue } from 'http';
+import { readFile, writeFile } from 'fs/promises';
 
 export class productService {
     
@@ -40,5 +40,16 @@ export class productService {
             products.splice(randomIndex, 1)
         }
         return randomProduct
+    }
+
+    async findAndSave() {
+        const products = await this.findAll();
+        writeFile('products.json', JSON.stringify(products, null, 2))
+        return "produtos salvo em arquivo"
+    }
+
+    async readProducts() {
+        const products = await readFile('products.json', "utf-8" )
+        return JSON.parse(products)
     }
 }

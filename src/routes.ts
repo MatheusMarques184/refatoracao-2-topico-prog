@@ -17,6 +17,8 @@ routes.get('/products/:id', productController.find)
 routes.put('/products/:id', productController.update)
 routes.delete('/products/:id', productController.delete)
 routes.get('/products-random', productController.randomProducts)
+routes.get('/products-save', productController.findAndSave)
+routes.get('/products-read', productController.readProducts)
 
 
 routes.get('/products-stock-value', stockController.stockValue)
